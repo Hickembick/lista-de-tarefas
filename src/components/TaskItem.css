@@ -1,0 +1,20 @@
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+  }
+  
+  .task-text {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .completed {
+    background-color: lightgreen;
+    text-decoration: line-through;
+  }
+  
