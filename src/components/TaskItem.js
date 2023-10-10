@@ -1,0 +1,1 @@
+//*Este componente representa uma tarefa individual. Ele pode exibir o texto da tarefa, seu estado (concluída ou não) e botões para editar e marcar como concluída.
