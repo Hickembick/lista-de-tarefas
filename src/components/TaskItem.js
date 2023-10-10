@@ -1,7 +1,7 @@
 //*Este componente representa uma tarefa individual. Ele pode exibir o texto da tarefa, seu estado (concluída ou não) e botões para editar e marcar como concluída.
 
 import React, { useState } from 'react';
-import './TaskItem.css'; // Importe o arquivo CSS
+import '../styles/TaskItem.css'; // Importe o arquivo CSS
 
 function TaskItem({ task, onComplete, onDelete }) {
   const [completed, setCompleted] = useState(false);
