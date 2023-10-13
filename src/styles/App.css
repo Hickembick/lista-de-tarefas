@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+/* Estilos para o rodapé */
+footer {
+  background-color: #333; /* Cor de fundo do rodapé */
+  color: #fff; /* Cor do texto no rodapé */
+  padding: 10px; /* Espaçamento interno no rodapé */
+  position: fixed; /* Fixar no rodapé */
+  bottom: 0; /* Colocar no fundo da página */
+  width: 100%; /* Largura total da página */
+  text-align: center; /* Centralizar o conteúdo do rodapé */
+  height: 20px;
+  font-size: 14px;
+  margin-top: -10px;
+}

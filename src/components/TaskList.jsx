@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import TaskItem from './TaskItem';
+import '../styles/TaskList.css';
+
 
 function TaskList({ tasks, onComplete, onDelete }) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,14 +24,19 @@ function TaskList({ tasks, onComplete, onDelete }) {
         value={searchTerm}
         onChange={handleSearchChange}
       />
-      {filteredTasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          onComplete={onComplete}
-          onDelete={onDelete}
-        />
-      ))}
+
+      <div className='lista' >
+        {filteredTasks.map((task) => (
+          <div className="task-added">
+            <TaskItem
+              key={task.id}
+              task={task}
+              onComplete={onComplete}
+              onDelete={onDelete}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

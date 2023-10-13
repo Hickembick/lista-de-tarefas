@@ -1,0 +1,15 @@
+.task-added {
+  border-radius: 8px;
+  border: 1px solid rgba(235, 241, 246, 1)
+}
+
+.lista {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  flex-wrap: wrap;
+  padding: 16px;
+  border-radius: 0px 0px 8px 8px;
+  gap: 16px;
+}
+  
