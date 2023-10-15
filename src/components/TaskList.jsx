@@ -4,17 +4,12 @@ import React, { useState } from 'react';
 import TaskItem from './TaskItem';
 import '../styles/TaskList.css';
 
-
 function TaskList({ tasks, onComplete, onDelete }) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
-
-  const filteredTasks = tasks.filter((task) =>
-    task.text.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   return (
     <div>
@@ -25,16 +20,15 @@ function TaskList({ tasks, onComplete, onDelete }) {
         onChange={handleSearchChange}
       />
 
-      <div className='lista' >
-        {filteredTasks.map((task) => (
-          <div className="task-added">
-            <TaskItem
-              key={task.id}
-              task={task}
-              onComplete={onComplete}
-              onDelete={onDelete}
-            />
-          </div>
+      <div className="lista">
+        {tasks.map((task) => (
+          <TaskItem
+            key={task.id}
+            task={task}
+            onComplete={onComplete}
+            onDelete={onDelete}
+            completed={task.completed} // Passando o estado de conclusão
+          />
         ))}
       </div>
     </div>
@@ -42,4 +36,5 @@ function TaskList({ tasks, onComplete, onDelete }) {
 }
 
 export default TaskList;
+
 
