@@ -1,10 +1,11 @@
 const ToDoModel = require('../models/ToDoModel');
 
+// Endpoint para obter todas as tarefas
 module.exports.getToDo = async (req,res) => {
     const toDo = await ToDoModel.find();
     res.send(toDo);
 }
-
+// Endpoint para salvar uma nova tarefa
 module.exports.saveToDo = async (req,res) => {
 
     const { text } = req.body
@@ -17,7 +18,7 @@ module.exports.saveToDo = async (req,res) => {
         res.send(data)
     })
 }
-
+// Endpoint para atualizar uma tarefa existente
 module.exports.updateToDo = async (req,res) => {
     const {_id , text} = req.body
     ToDoModel
@@ -26,6 +27,7 @@ module.exports.updateToDo = async (req,res) => {
     .catch((err) => console.log(err))
 }
 
+// Endpoint para excluir uma tarefa
 module.exports.deleteToDo = async (req,res) => {
     const {_id} = req.body
     ToDoModel
@@ -33,6 +35,8 @@ module.exports.deleteToDo = async (req,res) => {
     .then(() => res.send("Deletado com Sucesso!"))
     .catch((err) => console.log(err))
 }
+
+// Endpoint para obter uma tarefa pelo ID
 
 module.exports.getToDoById = async (req, res) => {
     const { id } = req.params;
@@ -49,6 +53,8 @@ module.exports.getToDoById = async (req, res) => {
             res.status(500).send('Erro ao buscar a tarefa por ID');
         });
 }
+
+// Endpoint para buscar tarefas com base em uma parte do texto
 
 module.exports.searchByPartialText = async (req, res) => {
     const { partialText } = req.body;
@@ -69,6 +75,7 @@ module.exports.searchByPartialText = async (req, res) => {
             res.status(500).send('Erro ao buscar tarefas por parte da string');
         });
 };
+// Endpoint para alternar o status de uma tarefa entre "NÃO CONCLUÍDO" e "CONCLUÍDO"
 
 module.exports.toggleStatus = async (req, res) => {
     const { _id } = req.body; 
