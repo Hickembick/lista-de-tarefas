@@ -57,7 +57,7 @@ module.exports.searchByPartialText = async (req, res) => {
         return res.status(400).send('É necessário fornecer uma parte da string para a pesquisa.');
     }
 
-    // Use uma expressão regular para buscar por parte do texto (case-insensitive)
+    
     const regex = new RegExp(partialText, 'i');
 
     ToDoModel.find({ text: regex })
@@ -70,4 +70,28 @@ module.exports.searchByPartialText = async (req, res) => {
         });
 };
 
+module.exports.toggleStatus = async (req, res) => {
+    const { _id } = req.body; 
+
+    ToDoModel.findById(_id)
+        .then(todo => {
+            if (!todo) {
+                return res.status(404).send('Tarefa não encontrada');
+            }
+
+            todo.status = todo.status === 'NÃO CONCLUÍDO' ? 'CONCLUÍDO' : 'NÃO CONCLUÍDO'; 
+            todo.save()
+                .then(updatedTodo => {
+                    res.send(updatedTodo);
+                })
+                .catch(err => {
+                    console.error(err);
+                    res.status(500).send('Erro ao salvar a tarefa atualizada');
+                });
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).send('Erro ao buscar a tarefa por ID');
+        });
+};
 
