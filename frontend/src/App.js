@@ -7,6 +7,8 @@ import {
   deleteToDo,
   toggleStatus,
 } from "./api/api";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
   const [toDo, setToDo] = useState([]);
@@ -27,6 +29,7 @@ function App() {
 
   return (
     <div className="App">
+       <Header /> {/* Renderizar o componente Header */}
       <div className="container">
         <h1>ToDo App</h1>
         <div className="top">
@@ -68,8 +71,9 @@ function App() {
               />
             ))}
         </div>
-      </div>
     </div>
+    <Footer></Footer>
+      </div>
   );
 }
 

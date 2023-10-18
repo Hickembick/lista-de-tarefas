@@ -2,6 +2,8 @@ import axios from 'axios'
 
 const baseUrl = "http://localhost:5000"
 
+// Função para obter todas as tarefas
+
 const getAllToDo = (setToDo) => {
     axios
     .get(baseUrl)
@@ -11,6 +13,8 @@ const getAllToDo = (setToDo) => {
     })
     .catch((err) => console.log(err))
 }
+
+// Função para adicionar uma nova tarefa
 
 const addToDo = (text,setText,setToDo) => {
     axios
@@ -22,6 +26,7 @@ const addToDo = (text,setText,setToDo) => {
     })
     .catch((err) => console.log(err))
 }
+// Função para atualizar uma tarefa existente
 
 const updateToDo = (toDoId,text,setToDo,setText,setIsUpdating) => {
     axios
@@ -35,6 +40,8 @@ const updateToDo = (toDoId,text,setToDo,setText,setIsUpdating) => {
     
 }
 
+// Função para excluir uma tarefa
+
 const deleteToDo = (toDoId,setToDo) => {
     axios
     .post(`${baseUrl}/delete`,{_id:toDoId})
@@ -45,6 +52,8 @@ const deleteToDo = (toDoId,setToDo) => {
     
 }
 
+// Função para obter uma tarefa pelo ID
+
 const getToDoById = (id) => {
     return axios
       .get(`${baseUrl}/search-by-id/${id}`)
@@ -54,6 +63,9 @@ const getToDoById = (id) => {
       });
   };
   
+
+  // Função para pesquisar tarefas por texto parcial
+
   const searchByPartialText = (text) => {
     return axios
       .get(`${baseUrl}/search-by-text/?partialText=${text}`)
@@ -62,6 +74,8 @@ const getToDoById = (id) => {
         throw err;
       });
   };
+
+  // Função para alternar o status de uma tarefa
 
   const toggleStatus = (toDoId,setToDo) => {
     axios
