@@ -5,7 +5,7 @@ const Header = () => {
     backgroundColor: "black", // Definir a cor de fundo da div
     color: "#fff", // Definir a cor do texto
     padding: "10px",
-    textAlign: "center", // Centralizar o texto
+  
   };
 
   return (
