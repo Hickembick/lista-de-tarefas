@@ -13,6 +13,7 @@ function App() {
   const [text, setText] = useState("");
   const [IsUpdating, setIsUpdating] = useState(false);
   const [toDoId, setToDoId] = useState("");
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     getAllToDo(setToDo);
@@ -35,6 +36,12 @@ function App() {
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
+          <input
+            type="text"
+            placeholder="Pesquisar por nome"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
           <div
             className="add"
             onClick={
@@ -48,16 +55,18 @@ function App() {
           </div>
         </div>
         <div className="list">
-          {toDo.map((item) => (
-            <ToDo
-              key={item._id}
-              text={item.text}
-              updateMode={() => updateMode(item._id, item.text)}
-              deleteToDo={() => deleteToDo(item._id, setToDo)}
-              toggleStatus={() => toggleStatus(item._id, setToDo)}
-              status={item.status}
-            />
-          ))}
+          {toDo
+            .filter((item) => item.text.includes(searchText))
+            .map((item) => (
+              <ToDo
+                key={item._id}
+                text={item.text}
+                updateMode={() => updateMode(item._id, item.text)}
+                deleteToDo={() => deleteToDo(item._id, setToDo)}
+                toggleStatus={() => toggleStatus(item._id, setToDo)}
+                status={item.status}
+              />
+            ))}
         </div>
       </div>
     </div>
