@@ -45,23 +45,23 @@ const deleteToDo = (toDoId,setToDo) => {
     
 }
 
-// const getToDoById = (id) => {
-//     return axios
-//       .get(`${baseUrl}/search-by-id/${id}`)
-//       .then(({ data }) => data)
-//       .catch((err) => {
-//         throw err;
-//       });
-//   };
+const getToDoById = (id) => {
+    return axios
+      .get(`${baseUrl}/search-by-id/${id}`)
+      .then(({ data }) => data)
+      .catch((err) => {
+        throw err;
+      });
+  };
   
-//   const searchByPartialText = (text) => {
-//     return axios
-//       .get(`${baseUrl}/search-by-text/?partialText=${text}`)
-//       .then(({ data }) => data)
-//       .catch((err) => {
-//         throw err;
-//       });
-//   };
+  const searchByPartialText = (text) => {
+    return axios
+      .get(`${baseUrl}/search-by-text/?partialText=${text}`)
+      .then(({ data }) => data)
+      .catch((err) => {
+        throw err;
+      });
+  };
 
   const toggleStatus = (toDoId,setToDo) => {
     axios
