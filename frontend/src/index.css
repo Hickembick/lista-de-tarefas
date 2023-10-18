@@ -41,9 +41,9 @@ input{
 .add {
   background-color: #000;
   color: #fff;
-  padding: 0.5 rem 1.5rem;
+  padding: 0.1rem 1.5rem;
   cursor: pointer;
-  border-radius: 10%;
+  border-radius: 10px;
 }
 
 .todo {

@@ -7,7 +7,10 @@ const Footer = () => {
     textAlign: "center", // Centralizar o texto
     backgroundColor: "#333", // Definir a cor de fundo da div
     color: "#fff", // Definir a cor do texto
-    padding: "8px",
+    padding: "5px",
+    position: "fixed",
+    width: "100%",
+    bottom: "0",
   };
 
   return (
