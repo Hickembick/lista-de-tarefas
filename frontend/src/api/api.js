@@ -45,4 +45,35 @@ const deleteToDo = (toDoId,setToDo) => {
     
 }
 
-export {getAllToDo , addToDo , updateToDo, deleteToDo}
+// const getToDoById = (id) => {
+//     return axios
+//       .get(`${baseUrl}/search-by-id/${id}`)
+//       .then(({ data }) => data)
+//       .catch((err) => {
+//         throw err;
+//       });
+//   };
+  
+//   const searchByPartialText = (text) => {
+//     return axios
+//       .get(`${baseUrl}/search-by-text/?partialText=${text}`)
+//       .then(({ data }) => data)
+//       .catch((err) => {
+//         throw err;
+//       });
+//   };
+
+  const toggleStatus = (toDoId,setToDo) => {
+    axios
+      .put(`${baseUrl}/toggle-status`, { _id: toDoId })
+      .then(({data}) => {
+        getAllToDo(setToDo)
+    })
+    .catch((err) => {
+        console.error(err);
+      });
+  };
+  
+  
+  
+export {getAllToDo , addToDo , updateToDo, deleteToDo , toggleStatus}
