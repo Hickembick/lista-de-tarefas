@@ -52,7 +52,7 @@ function App() {
                 ? () =>
                     updateToDo(toDoId, text, setToDo, setText, setIsUpdating)
                 : () => addToDo(text, setText, setToDo)
-            }
+            } 
           >
             {IsUpdating ? "Atualizar" : "Adicionar"}
           </div>
@@ -62,11 +62,11 @@ function App() {
             .filter((item) => item.text.includes(searchText))
             .map((item) => (
               <ToDo
-                key={item._id}
+                key={item.id}
                 text={item.text}
-                updateMode={() => updateMode(item._id, item.text)}
-                deleteToDo={() => deleteToDo(item._id, setToDo)}
-                toggleStatus={() => toggleStatus(item._id, setToDo)}
+                updateMode={() => updateMode(item.id, item.text)}
+                deleteToDo={() => deleteToDo(item.id, setToDo)}
+                toggleStatus={() => toggleStatus(item.id, setToDo)}
                 status={item.status}
               />
             ))}

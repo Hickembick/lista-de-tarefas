@@ -28,17 +28,18 @@ const addToDo = (text,setText,setToDo) => {
 }
 // Função para atualizar uma tarefa existente
 
-const updateToDo = (toDoId,text,setToDo,setText,setIsUpdating) => {
-    axios
-    .post(`${baseUrl}/update`,{_id:toDoId ,text})
-    .then(({data}) => {
-        setText("");
-        setIsUpdating(false);
-        getAllToDo(setToDo)
+const updateToDo = (toDoId, text, setToDo, setText, setIsUpdating) => {
+  console.log(toDoId);
+  axios
+    .post(`${baseUrl}/update`, { _id: toDoId, text }) // Inclua o ID da tarefa
+    .then(({ data }) => {
+      setText("");
+      setIsUpdating(false);
+      getAllToDo(setToDo);
     })
-    .catch((err) => console.log(err))
-    
-}
+    .catch((err) => console.log(err));
+};
+
 
 // Função para excluir uma tarefa
 
